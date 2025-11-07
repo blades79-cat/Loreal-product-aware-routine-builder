@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L’Oréal Routine Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img class="logo" alt="L'Oréal" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/L%27Oreal_logo.svg">
+      <h1>Routine Builder</h1>
+    </div>
+
+    <div class="actions">
+      <input id="searchInput" class="search" placeholder="Search products…" />
+      <select id="categoryFilter" class="filter">
+        <option value="all">All categories</option>
+        <option value="skincare">Skincare</option>
+        <option value="haircare">Haircare</option>
+        <option value="makeup">Makeup</option>
+        <option value="fragrance">Fragrance</option>
+      </select>
+
+      <!-- LevelUp: RTL support -->
+      <label class="rtl-toggle">
+        <input id="rtlToggle" type="checkbox" />
+        RTL
+      </label>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="catalog">
+      <h2>Browse Products</h2>
+      <div id="catalogGrid" class="grid"></div>
+      <button id="showMoreBtn" class="ghost">Show More Products</button>
+    </section>
+
+    <section class="selected">
+      <div class="selected-head">
+        <h2>Selected Products</h2>
+        <div>
+          <button id="clearSelectedBtn" class="ghost small">Clear</button>
+        </div>
+      </div>
+
+      <ul id="selectedList" class="selected-list"></ul>
+
+      <button id="generateBtn" class="primary">Generate Routine</button>
+
+      <details class="about">
+        <summary>About Your Routine</summary>
+        <p id="routineNotes">Pick a few products and click “Generate Routine.”</p>
+      </details>
+
+      <div class="chat">
+        <div class="chat-head">
+          <div class="last-q-wrap">
+            <div class="label">Last question</div>
+            <div id="lastQuestion" class="last-q">—</div>
+          </div>
+        </div>
+
+        <div id="chatWindow" class="chat-window"></div>
+
+        <form id="chatForm" class="chat-form">
+          <input id="userInput" class="chat-input" placeholder="Ask about your routine…" />
+          <button class="send">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Product description modal -->
+  <dialog id="productModal" class="modal">
+    <article>
+      <header>
+        <h3 id="modalTitle">Product</h3>
+        <button id="modalClose" aria-label="Close">✕</button>
+      </header>
+      <img id="modalImg" alt="" />
+      <p id="modalDesc"></p>
+    </article>
+  </dialog>
+
+  <footer class="site-footer">
+    <small>Built for class • Cloudflare Worker protected • L’Oréal brand-inspired UI</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
